@@ -1,0 +1,539 @@
+@import url("https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;500;600;700&display=swap");
+
+/* ======================================
+   Reset
+====================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ======================================
+   Variables
+====================================== */
+
+:root {
+  --background: #f5f3ee;
+
+  --text: #292824;
+
+  --muted: #858179;
+
+  --border: #e5e1d8;
+
+  --primary: #6f7465;
+
+  --primary-hover: #5c6154;
+
+  --surface: #fffefa;
+
+  --white: #ffffff;
+}
+
+/* ======================================
+   Body
+====================================== */
+
+body {
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 50% -10%,
+      rgba(111, 116, 101, 0.08),
+      transparent 35%
+    ),
+    var(--background);
+
+  color: var(--text);
+
+  font-family: "Cairo", sans-serif;
+}
+
+/* ======================================
+   Container
+====================================== */
+
+.container {
+  width: 100%;
+
+  max-width: 1100px;
+
+  min-height: 100vh;
+
+  margin: auto;
+
+  padding: 30px 20px 55px;
+}
+
+/* ======================================
+   Header
+====================================== */
+
+.mainHeader {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 5px 2px 25px;
+
+  border-bottom: 1px solid var(--border);
+}
+
+/* ======================================
+   Brand
+====================================== */
+
+.brand {
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+}
+
+.brandIcon {
+  width: 48px;
+
+  height: 48px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 14px;
+
+  color: white;
+
+  background: linear-gradient(145deg, #7c8272, #62685a);
+
+  box-shadow: 0 7px 18px rgba(70, 73, 63, 0.14);
+}
+
+.brandIcon span {
+  font-family: "Amiri", serif;
+
+  font-size: 27px;
+}
+
+.mainHeader h1 {
+  font-family: "Amiri", serif;
+
+  font-size: 28px;
+
+  line-height: 1.1;
+}
+
+.mainHeader p {
+  color: var(--muted);
+
+  font-size: 11px;
+
+  margin-top: 4px;
+}
+
+.bookCount {
+  color: var(--muted);
+
+  font-size: 12px;
+}
+
+/* ======================================
+   Intro
+====================================== */
+
+.intro {
+  text-align: center;
+
+  padding: 42px 10px 30px;
+}
+
+.introDecoration {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 5px;
+
+  margin-bottom: 9px;
+}
+
+.introDecoration span {
+  width: 4px;
+
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: var(--primary);
+}
+
+.introDecoration span:nth-child(2) {
+  width: 7px;
+
+  height: 7px;
+}
+
+.intro h2 {
+  font-family: "Amiri", serif;
+
+  font-size: 38px;
+
+  line-height: 1.2;
+}
+
+.intro p {
+  color: var(--muted);
+
+  font-size: 13px;
+
+  margin-top: 5px;
+}
+
+/* ======================================
+   Grid
+====================================== */
+
+.booksGrid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+}
+
+/* ======================================
+   Book Card
+====================================== */
+
+.bookCard {
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  text-decoration: none;
+
+  color: var(--text);
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+
+  border-radius: 20px;
+
+  padding: 25px 20px 20px;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.bookCard:hover {
+  transform: translateY(-5px);
+
+  border-color: #d8d4ca;
+
+  box-shadow: 0 15px 35px rgba(41, 40, 36, 0.09);
+}
+
+/* ======================================
+   Book Image Area
+====================================== */
+
+.bookCover {
+  position: relative;
+
+  width: 145px;
+
+  height: 200px;
+
+  margin-bottom: 18px;
+}
+
+/* ======================================
+   Actual Book Image
+====================================== */
+
+.bookCover img {
+  width: 100%;
+
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  border-radius: 5px;
+
+  background: #e5e1d8;
+
+  box-shadow:
+    4px 7px 15px rgba(0, 0, 0, 0.14),
+    -1px 0 0 rgba(0, 0, 0, 0.05);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.bookCard:hover .bookCover img {
+  transform: translateY(-3px);
+
+  box-shadow: 5px 11px 20px rgba(0, 0, 0, 0.17);
+}
+
+/* ======================================
+   Book Spine
+====================================== */
+
+.bookCover::before {
+  content: "";
+
+  position: absolute;
+
+  right: -4px;
+
+  top: 3px;
+
+  width: 4px;
+
+  height: calc(100% - 6px);
+
+  border-radius: 0 3px 3px 0;
+
+  background: rgba(0, 0, 0, 0.16);
+
+  z-index: -1;
+}
+
+/* ======================================
+   Book Info
+====================================== */
+
+.bookInfo {
+  width: 100%;
+
+  text-align: center;
+}
+
+.bookTitle {
+  font-family: "Amiri", serif;
+
+  font-size: 27px;
+
+  font-weight: 700;
+
+  line-height: 1.25;
+}
+
+.bookAuthor {
+  color: var(--muted);
+
+  font-size: 11px;
+
+  margin-top: 3px;
+}
+
+/* ======================================
+   Open Book
+====================================== */
+
+.bookOpen {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  width: 100%;
+
+  margin-top: 17px;
+
+  padding-top: 13px;
+
+  border-top: 1px solid var(--border);
+
+  color: var(--muted);
+
+  font-size: 11px;
+}
+
+.bookOpenArrow {
+  width: 29px;
+
+  height: 29px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: var(--white);
+
+  background: var(--primary);
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.bookCard:hover .bookOpenArrow {
+  background: var(--primary-hover);
+
+  transform: translateX(-4px);
+}
+
+/* ======================================
+   Loading
+====================================== */
+
+.loading {
+  grid-column: 1 / -1;
+
+  text-align: center;
+
+  padding: 70px;
+
+  color: var(--muted);
+
+  font-size: 13px;
+}
+
+/* ======================================
+   Error
+====================================== */
+
+.error {
+  grid-column: 1 / -1;
+
+  padding: 60px 20px;
+
+  text-align: center;
+
+  color: var(--muted);
+}
+
+/* ======================================
+   Footer
+====================================== */
+
+.footer {
+  text-align: center;
+  margin-top: 55px;
+  padding: 25px 15px 10px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.footer p {
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.footer p span {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.footerLine {
+  width: 35px;
+  height: 2px;
+  margin: 10px auto;
+  border-radius: 10px;
+  background: var(--primary);
+}
+
+.footer small {
+  font-size: 10px;
+  color: var(--muted);
+}
+
+/* ======================================
+   Tablet
+====================================== */
+
+@media (max-width: 850px) {
+  .booksGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ======================================
+   Mobile
+====================================== */
+
+@media (max-width: 600px) {
+  .container {
+    padding: 20px 14px 45px;
+  }
+
+  .mainHeader {
+    padding-bottom: 20px;
+  }
+
+  .brandIcon {
+    width: 43px;
+
+    height: 43px;
+  }
+
+  .mainHeader h1 {
+    font-size: 25px;
+  }
+
+  .mainHeader p {
+    font-size: 10px;
+  }
+
+  .bookCount {
+    font-size: 10px;
+  }
+
+  .intro {
+    padding: 36px 5px 27px;
+  }
+
+  .intro h2 {
+    font-size: 33px;
+  }
+
+  .intro p {
+    font-size: 12px;
+  }
+
+  .booksGrid {
+    grid-template-columns: 1fr;
+
+    gap: 15px;
+  }
+
+  .bookCard {
+    padding: 23px 18px 18px;
+  }
+
+  .bookCover {
+    width: 135px;
+
+    height: 185px;
+  }
+}
